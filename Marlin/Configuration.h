@@ -314,9 +314,9 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
   // Ultimaker
-  #define  DEFAULT_Kp 39.54
-  #define  DEFAULT_Ki 4.43
-  #define  DEFAULT_Kd 88.26
+  #define  DEFAULT_Kp 22.29
+  #define  DEFAULT_Ki 1.27
+  #define  DEFAULT_Kd 97.53
 
   // MakerGear
   //#define  DEFAULT_Kp 7.0
@@ -358,9 +358,9 @@
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define  DEFAULT_bedKp 398.58
-  #define  DEFAULT_bedKi 73.71
-  #define  DEFAULT_bedKd 538.78
+  #define  DEFAULT_bedKp 102.58
+  #define  DEFAULT_bedKi 4.42
+  #define  DEFAULT_bedKd 595.06
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune
@@ -486,7 +486,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 138.4336 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 79.5, 79.5, 400, 837 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -501,7 +501,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3]]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 100, 4000 }
+#define DEFAULT_MAX_ACCELERATION      { 1500, 1500, 80, 4000 }
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -511,9 +511,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          2000    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION          1200    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION   1200    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk (mm/s)
@@ -522,9 +522,9 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-#define DEFAULT_XJERK                 10.0
-#define DEFAULT_YJERK                 10.0
-#define DEFAULT_ZJERK                  0.4
+#define DEFAULT_XJERK                  5.0
+#define DEFAULT_YJERK                  5.0
+#define DEFAULT_ZJERK                  0.3
 #define DEFAULT_EJERK                  5.0
 
 
@@ -551,11 +551,11 @@
 
 // The BLTouch probe emulates a servo probe.
 // The default connector is SERVO 0. Set Z_ENDSTOP_SERVO_NR below to override.
-//#define BLTOUCH
+#define BLTOUCH
 
 // Z Servo Probe, such as an endstop switch on a rotating arm.
-//#define Z_ENDSTOP_SERVO_NR 0
-//#define Z_SERVO_ANGLES {70,0} // Z Servo Deploy and Stow angles
+#define Z_ENDSTOP_SERVO_NR 0
+#define Z_SERVO_ANGLES {10,90} // Z Servo Deploy and Stow angles
 
 // Enable if you have a Z probe mounted on a sled like those designed by Charles Bell.
 //#define Z_PROBE_SLED
@@ -578,12 +578,12 @@
 //    |           |
 //    O-- FRONT --+
 //  (0,0)
-#define X_PROBE_OFFSET_FROM_EXTRUDER 10  // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER 10  // Y offset: -front +behind [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER -42  // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER 32  // Y offset: -front +behind [the nozzle]
 #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
-#define XY_PROBE_SPEED 8000
+#define XY_PROBE_SPEED 6000
 // Speed for the first approach when double-probing (with PROBE_DOUBLE_TOUCH)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
 // Speed for the "accurate" probe of each point
@@ -694,7 +694,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -711,7 +711,7 @@
 #define Y_HOME_DIR 1
 #define Z_HOME_DIR -1
 
-#define min_software_endstops true // If true, axis won't move to coordinates less than HOME_POS.
+#define min_software_endstops false // If true, axis won't move to coordinates less than HOME_POS.
 #define max_software_endstops true  // If true, axis won't move to coordinates greater than the defined lengths below.
 
 // @section machine
@@ -720,9 +720,9 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 300
-#define Y_MAX_POS 200
-#define Z_MAX_POS 325
+#define X_MAX_POS 285
+#define Y_MAX_POS 280
+#define Z_MAX_POS 275
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
@@ -792,7 +792,7 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_BILINEAR
 
 /**
  * Enable detailed logging of G28, G29, M48, etc.
@@ -804,14 +804,14 @@
 #if ENABLED(AUTO_BED_LEVELING_LINEAR) || ENABLED(AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define ABL_GRID_POINTS_X 3
+  #define ABL_GRID_POINTS_X 2
   #define ABL_GRID_POINTS_Y ABL_GRID_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
-  #define LEFT_PROBE_BED_POSITION 15
-  #define RIGHT_PROBE_BED_POSITION 170
-  #define FRONT_PROBE_BED_POSITION 20
-  #define BACK_PROBE_BED_POSITION 170
+  #define LEFT_PROBE_BED_POSITION 40
+  #define RIGHT_PROBE_BED_POSITION 230
+  #define FRONT_PROBE_BED_POSITION 40
+  #define BACK_PROBE_BED_POSITION 230
 
   // The Z probe minimum outer margin (to validate G29 parameters).
   #define MIN_PROBE_EDGE 10
@@ -866,7 +866,7 @@
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
 #define MANUAL_X_HOME_POS 0
-#define MANUAL_Y_HOME_POS 200
+#define MANUAL_Y_HOME_POS 280
 #define MANUAL_Z_HOME_POS 0 // Distance between the nozzle to printbed after homing
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
@@ -877,7 +877,7 @@
 // - If stepper drivers time out, it will need X and Y homing again before Z homing.
 // - Move the Z probe (or nozzle) to a defined XY point before Z Homing when homing all axes (G28).
 // - Prevent Z homing when the Z probe is outside bed area.
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT ((X_MIN_POS + X_MAX_POS) / 2)    // X point for Z homing when homing all axis (G28).
