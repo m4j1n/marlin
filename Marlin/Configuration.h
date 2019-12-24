@@ -720,9 +720,9 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 285
+#define X_MAX_POS 300
 #define Y_MAX_POS 280
-#define Z_MAX_POS 275
+#define Z_MAX_POS 300
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
@@ -809,9 +809,9 @@
 
   // Set the boundaries for probing (where the probe can reach).
   #define LEFT_PROBE_BED_POSITION 40
-  #define RIGHT_PROBE_BED_POSITION 230
+  #define RIGHT_PROBE_BED_POSITION 260
   #define FRONT_PROBE_BED_POSITION 40
-  #define BACK_PROBE_BED_POSITION 230
+  #define BACK_PROBE_BED_POSITION 240
 
   // The Z probe minimum outer margin (to validate G29 parameters).
   #define MIN_PROBE_EDGE 10
